@@ -13,11 +13,13 @@ body {
     background-size: cover;
     font-family: "Graduate", sans-serif;
     z-index: -1;
+    height: 100vh;
 }
 
-header {
+.header {
     color: #EAFDF8;
     text-shadow: 2px;
+    font-size: 25px;
 }
 
 .main-title-container {
@@ -84,10 +86,11 @@ header {
 /* game.html */ 
 
 
-.gamepage-title {
+.game-title-container {
     color: #EAFDF8;
     font-size: 50px;
     text-align: center;
+    justify-content: center;
     padding-top: 20px;
 }
 
@@ -99,6 +102,15 @@ header {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+}
+
+.exit-button {
+    color: #6C0E23;
+    background-color: #EAFDF8;
+    border-radius: 10%;
+    width: 80px;
+    height: 40px;
+    text-align: center;
 }
 
 .flip-counter p,

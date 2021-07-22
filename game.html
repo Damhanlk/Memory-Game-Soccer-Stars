@@ -18,10 +18,26 @@
 </head>
 <body>
 
-    <h1 class="gamepage-title"> Soccer Stars</h1>
+    <!-- Title with exit button to return to landing page -->
 
-    <div class="container">
+    <div class="container game-title-container">
         <div class="row d-flex p-2  no-gutters">
+            <div class="col-2 d-none d-md-block"></div>
+            <div class="col-6 col-md-3">
+                <h1 class="header">Soccer Stars</h1>
+            </div>
+            <div class="col-2 d-none d-md-block"></div>
+            <div class="col-6 col-md-3">
+                <button type="button" class="btn exit-button center" onclick="window.location.href='index.html';">
+                    Exit
+                </button>
+            </div>
+            <div class="col-2 d-none d-md-block"></div>
+        </div>
+    </div>
+   <!-- Duplicate container for time and flips counters -->
+    <div class="container">
+        <div class="row d-flex p-2 no-gutters">
             <div class="col-2 d-none d-md-block"></div>
             <div class="col-6 col-md-3 flip-counter">
                 <p class="counter">Flips: <span id="flips"> 0 </span></p>
