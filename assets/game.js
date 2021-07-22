@@ -13,7 +13,51 @@ let columnStyle = ''; // game-board class will be adjusted for different sizings
 let firstCard, secondCard; // Checks for card matches 
 let firstClick = 0; // avoids the same card being flipped more than once 
 let maxPairs = 0; // 
-let time = 0; // time will be 100 seconds regardless of diffculty 
+let boardLock = false; //prevents two cards being clicked at the same time 
+let time = 0; // time will be 60 seconds regardless of difficulty, which is altered by the maxPairs
 let pairsMatched = 0; // checks matched cards and compares against maxPairs to see if the game has been won
 
 
+// sourced from https://github.com/David-A-Ray for game set-up 
+
+$('document').ready(function () {
+    // grab the query parameter from the url and pass it to game setup
+    mode = new URLSearchParams(window.location.search).get('mode');
+    gameSetup(mode);
+    { 
+      gameBuild();
+    }
+});
+
+    //use of a switch case here to determine card array length, pairs needed to win and layout depending on which mode is selected 
+    function gameSetup(mode) {
+        switch (mode) {
+            case "Easy":
+                maxPairs = 6;
+                cardsLength = 12;
+                cardsPerRow = 'col-3';
+                colStyle = 'game-mode-easy';
+                time = 60000;
+                startTime = '0m : 60s';
+                break;
+            case "Medium":
+                maxPairs = 9;
+                cardsLength = 18;
+                cardsPerRow = 'col-2';
+                colStyle = 'game-mode-medium';
+                time = 50000;
+                startTime = '0m : 60s';
+                break;
+            case "Hard":
+                maxPairs = 12;
+                cardsLength = 24;
+                cardsPerRow = 'col-2';
+                colStyle = 'game-mode-hard';
+                time = 60000;
+                startTime = '1m : 65s';
+                break;
+                break;
+        }
+    }
+
+    
