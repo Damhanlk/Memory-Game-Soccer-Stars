@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="description" content="An interactive sports themed memory game designed for all ages and offering several difficulties">
+    <meta name="author" content="Damhán Lloyd-Keogh">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
+    <title>Soccer Stars</title>
+</head>
+<body>
+
+    <h1 class="gamepage-title"> Soccer Stars</h1>
+
+    <div class="game-container">
+        <div class="game-scores-container">
+            <div class="game-scores">
+                Time: <span id="time-remaining">100</span>
+            </div>
+            <div class="game-scores">
+                Flip Counter: <span id="flips">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code for card flips sourced from https://3dtransforms.desandro.com/card-flip and https://www.youtube.com/watch?v=28VfzEiJgy4&t=1059s-->
+
+    <div id="wrapper">
+        <div class="row game-cards">
+            <!-- easy level 12 cards-->
+            <div class="card" data-character="watch">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back watch"></div>
+            </div>
+            <div class="card" data-character="watch">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back watch"></div>
+            </div>
+            <div class="card" data-character="boot">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back boot"></div>
+            </div>
+            <div class="card" data-character="boot">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back boot"></div>
+            </div>
+            <div class="card" data-character="cards">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back cards"></div>
+            </div>
+            <div class="card" data-character="cards">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back cards"></div>
+            </div>
+            <div class="card" data-character="corner">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back corner"></div>
+            </div>
+            <div class="card" data-character="corner">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back corner"></div>
+            </div>
+            <div class="card" data-character="flag">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back flag"></div>
+            </div>
+            <div class="card" data-character="flag">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back flag"></div>
+            </div>
+            <div class="card" data-character="gloves">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back gloves"></div>
+            </div>
+            <div class="card" data-character="gloves">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back gloves"></div>
+            </div>
+            <!-- easy level ends -->
+            <div class="card hide-medium" data-character="goal">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back goal"></div>
+            </div>
+            <div class="card hide-medium" data-character="goal">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back goal"></div>
+            </div>
+            <div class="card hide-medium" data-character="jersey">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back jersey"></div>
+            </div>
+            <div class="card hide-medium" data-character="jersey">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back jersey"></div>
+            </div>
+            </div>
+          
+            <div class="card hide-medium" data-character="medal">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back medal"></div>
+            </div>
+            <div class="card hide-medium" data-character="medal">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back medal"></div>
+            </div>
+              <!-- medium level 18 cards  ends  -->
+            <div class="card hide-hard" data-character="pitch">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back medal"></div>
+            </div>
+            <div class="card hide-hard" data-character="pitch">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back medal"></div>
+            </div>
+            <div class="card hide-hard" data-character="whistle">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back medal"></div>
+            </div>
+            <div class="card hide-hard" data-character="whistle">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back medal"></div>
+            </div>
+            <div class="card hide-hard" data-character="trophy">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back trophy"></div>
+            </div>
+            <div class="card hide-hard" data-character="trophy">
+                <div class="card__face card__face--front"></div>
+                <div class="card__face card__face--back trophy"></div>
+            </div>
+            <!-- hard level 24 cards   ends-->
+        </div>
+    </div>
+</div>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+    <script>src="assets/game.js"</script>
+    <!-- Import of jquery libraries for functionality, taken from  https://cdnjs.com/libraries/jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+</html>
