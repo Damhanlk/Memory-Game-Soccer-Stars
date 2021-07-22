@@ -22,6 +22,8 @@ header {
 .main-title-container {
     height: 300px;
     font-size: 50px;
+    text-align: center;
+    padding-top: 20px;
 }
 
 .main-menu-button {
@@ -33,15 +35,30 @@ header {
     position: absolute;
 }
 
+.modal-header {
+    color: #084B83; 
+}
+
 .main-menu-container {
     font-size: 20px;
-    height: 40px;
+    height: 400px;
     padding-bottom: 10px;
 }
 
-#main-menu-modal {
-    border-radius: 20px;
-    
+.menu-button {
+    color: #EAFDF8;
+}
+
+.menu-button:hover {
+    color: #E2C044;
+}
+
+.exit-button {
+    color: #084B83;
+}
+
+.exit-button:hover {
+    color: #6C0E23;
 }
 
 .main-menu-icon {
@@ -49,14 +66,13 @@ header {
     width: 20px;
 }
 
-.modal-content {
-    position: absolute;
-}
-
 .modal-body {
-    justify-content: center;
+    background-color: #084B83;
+    color: #EAFDF8;
     text-align: center;
+    padding: 12px;
 }
 .modal-body > ul {
     list-style: none;
+    padding: 10px;
 }

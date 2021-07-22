@@ -22,7 +22,7 @@
 <body>
   <!-- Game Header  -->
   <header>
-    <div class="container-fluid d-flex justify-content-center align-items-center main-title-container">
+    <div class="container-fluid justify-content-center align-items-center main-title-container">
         Soccer Stars
     </div>
     </header>
@@ -48,26 +48,64 @@
           <div class="modal-body">
             <ul>
                 <li>
-                  <img class="main-menu-icon" src="assets/images/ball.png" alt="Play Game Button">
-                    <button type="button" class="btn menu-button button-click" data-toggle="modal"
-                        data-target="#playGameModal" data-dismiss="modal">Play Game</button>
-                </li>
-                <li>
                   <img class="main-menu-icon" src="assets/images/tactics.png" alt="Game Rules Button">
                     <button type="button" class="btn menu-button button-click" data-toggle="modal"
                         data-target="#ruleBookModal" data-dismiss="modal">Rule Book</button>
                 </li>
                 <li>
+                  <img class="main-menu-icon" src="assets/images/ball.png" alt="Play Game Button">
+                    <button type="button" class="btn menu-button button-click" data-toggle="modal"
+                        data-target="#playGameModal" data-dismiss="modal">Play Game</button>
+                </li>
+                <li>
                   <img class="main-menu-icon" src="assets/images/whistle.png" alt="Sound Toggle Button">
-                    <button type="button" class="btn menu-button button-click"
-                        onclick="window.location.href='theBar.html?mode=highScores';">
-                        Sound Settings</button>
+                    <button type="button" class="btn menu-button button-click" data-toggle="modal"
+                    data-target="#ruleBookModal" data-dismiss="modal">Sound Settings</button>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 </div>
+
+  <!-- Rule Book Modal -->
+  <div class="modal fade" id="ruleBookModal" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <div class="modal-content mainMenu">
+            <div class="modal-header d-block">
+                <h4 class="modal-title text-center">Rule Book</h4>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>
+                        <p>The goal is simple, choose your difficulty from the options below:</p>
+                        <p>Easy, 12 cards, 6 matches needed</p>
+                        <p>Medium, 16 cards, 8 matches needed</p>
+                        <p>Hard, 20 cards, 10 matches needed</p>
+                    </li>
+                    <li>
+                        <p>Click on a card to make it flip around. Click on a second card to try find its match!<br>
+                          If the cards match, they will stay face up, if not, they will flip around and you can try again!
+                        </p>
+                    </li>
+                    <li>
+                        <p>Test yourself against the clock and try to find all the matches as quickly as you can!</p>
+                    </li>
+                  </ul>
+            </div>
+
+            <!-- Close Modal Button taken from https://getbootstrap.com/docs/4.0/components/modal/ -->
+            <div class="modal-footer">
+                <button type="button" class="btn exit-button button-click" data-toggle="modal"
+                    data-target="#mainMenuModal" data-dismiss="modal">Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
     
