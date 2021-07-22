@@ -21,7 +21,7 @@ header {
 
 .main-title-container {
     height: 300px;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .main-menu-button {
@@ -36,7 +36,12 @@ header {
 .main-menu-container {
     font-size: 20px;
     height: 40px;
-    padding-bottom: 10px;;
+    padding-bottom: 10px;
+}
+
+#main-menu-modal {
+    border-radius: 20px;
+    
 }
 
 .main-menu-icon {
