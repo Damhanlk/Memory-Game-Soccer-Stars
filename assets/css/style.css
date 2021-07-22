@@ -101,8 +101,18 @@ header {
     justify-content: center;
 }
 
+.flip-counter p,
+.time-counter p {
+    font-size: 20px;
+    color: #6C0E23;
+    text-align: center;
+    margin-top: 8px;
+    background-color: #EAFDF8;
+    border: 2px solid #6C0E23;
+    border-radius: 5px;
+}
 
-.game-content-small {
+.game-mode-easy {
     position: absolute;
     top: 150px;
     max-width: 780px;
@@ -116,42 +126,10 @@ header {
             perspective: 1000px;
 }
 
-.game-content-medium {
-    position: absolute;
-    top: 150px;
-    max-width: 1100px;
-    bottom: 60px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-perspective: 1000px;
-            perspective: 1000px;
-}
-
-/* Media query added for smaller screen */
-
-@media (max-width: 445px) { 
 .game-mode-medium {
     position: absolute;
-    top: 200px;
-    max-width: 1100px;
-    bottom: 150px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-perspective: 1000px;
-            perspective: 1000px;
-}
-}
-
-.game-mode-hard {
-    position: absolute;
     top: 150px;
-    max-width: 900px;
+    max-width: 1100px;
     bottom: 60px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -161,8 +139,6 @@ header {
     -webkit-perspective: 1000px;
             perspective: 1000px;
 }
-
-
 
 
 /* Image styling for cards */ 
@@ -195,8 +171,8 @@ header {
     background-size: 100% 100%;
 }
 
-.cards {
-    background-image: url("/assets/images/cards.png");
+.tactics {
+    background-image: url("/assets/images/tactics.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -208,28 +184,8 @@ header {
     background-position: center;
 }
 
-.corner {
-    background-image: url("/assets/images/corner.png");
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position: center;
-}
-
 .flag {
     background-image: url("/assets/images/flag.png");
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position: center;
-}
-
-.flag {
-    background-image: url("/assets/images/flag.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-.gloves {
-    background-image: url("assets/images/gloves.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
@@ -249,20 +205,6 @@ header {
     background-position: center;
 }
 
-.goal {
-    background-image: url("/assets/images/goal.png");
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position: center;
-}
-
-.jersey {
-    background-image: url("assets/images/jersey.png");
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position: center;
-}
-
 .jersey {
     background-image: url("assets/images/jersey.png");
     background-repeat: no-repeat;
@@ -277,28 +219,8 @@ header {
     background-position: center;
 }
 
-.medal {
-    background-image: url("/assets/images/medal.png");
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position: center;
-}
-
 .trophy {
     background-image: url("assets/images/trophy.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-.trophy {
-    background-image: url("assets/images/trophy.png");
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position: center;
-}
-
-.whistle {
-    background-image: url("/assets/images/whistle.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
@@ -318,8 +240,8 @@ header {
     background-position: center;
 }
 
-.pitch {
-    background-image: url("/assets/images/pitch.png");
+.score {
+    background-image: url("/assets/images/score.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
@@ -328,7 +250,6 @@ header {
 /* Add Media Query for small screens */
 
 @media (max-width: 445px) { 
-
     .watch {
         background-image: url("/assets/_stopwatch.png");
         background-repeat: no-repeat;
@@ -336,12 +257,6 @@ header {
         background-position: center;
     }
     
-    .watch {
-        background-image: url("/assets/images/_stopwatch.png");
-        background-repeat: no-repeat;
-        background-size: 60%;
-        background-position: center;
-    }
     
     .boot {
         background-image: url("/assets/images/boot.png");
@@ -350,8 +265,8 @@ header {
         background-position: center;
     }
     
-    .boot {
-        background-image: url("/assets/images/boot.png");
+    .shoot {
+        background-image: url("/assets/images/shoot.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
@@ -363,8 +278,8 @@ header {
         background-size: 100% 100%;
     }
     
-    .cards {
-        background-image: url("/assets/images/cards.png");
+    .tactics {
+        background-image: url("/assets/images/tactics.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
     }
@@ -376,28 +291,8 @@ header {
         background-position: center;
     }
     
-    .corner {
-        background-image: url("/assets/images/corner.png");
-        background-repeat: no-repeat;
-        background-size: 60%;
-        background-position: center;
-    }
-    
     .flag {
         background-image: url("/assets/images/flag.png");
-        background-repeat: no-repeat;
-        background-size: 60%;
-        background-position: center;
-    }
-    
-    .flag {
-        background-image: url("/assets/images/flag.png");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-    }
-    
-    .gloves {
-        background-image: url("assets/images/gloves.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
@@ -417,20 +312,6 @@ header {
         background-position: center;
     }
     
-    .goal {
-        background-image: url("/assets/images/goal.png");
-        background-repeat: no-repeat;
-        background-size: 60%;
-        background-position: center;
-    }
-    
-    .jersey {
-        background-image: url("assets/images/jersey.png");
-        background-repeat: no-repeat;
-        background-size: 60%;
-        background-position: center;
-    }
-    
     .jersey {
         background-image: url("assets/images/jersey.png");
         background-repeat: no-repeat;
@@ -445,28 +326,8 @@ header {
         background-position: center;
     }
     
-    .medal {
-        background-image: url("/assets/images/medal.png");
-        background-repeat: no-repeat;
-        background-size: 60%;
-        background-position: center;
-    }
-    
     .trophy {
         background-image: url("assets/images/trophy.png");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-    }
-    
-    .trophy {
-        background-image: url("assets/images/trophy.png");
-        background-repeat: no-repeat;
-        background-size: 60%;
-        background-position: center;
-    }
-    
-    .whistle {
-        background-image: url("/assets/images/whistle.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
@@ -486,11 +347,12 @@ header {
         background-position: center;
     }
     
-    .pitch {
-        background-image: url("/assets/images/pitch.png");
+    .score {
+        background-image: url("/assets/images/score.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
+ 
 
 }

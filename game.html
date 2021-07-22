@@ -20,129 +20,28 @@
 
     <h1 class="gamepage-title"> Soccer Stars</h1>
 
-    <div class="game-container">
-        <div class="game-scores-container">
-            <div class="game-scores">
-                Time: <span id="time-remaining">100</span>
+    <div class="container">
+        <div class="row d-flex p-2  no-gutters">
+            <div class="col-2 d-none d-md-block"></div>
+            <div class="col-6 col-md-3 flip-counter">
+                <p class="counter">Flips: <span id="flips"> 0 </span></p>
             </div>
-            <div class="game-scores">
-                Flip Counter: <span id="flips">0</span>
+            <div class="col-2 d-none d-md-block"></div>
+            <div class="col-6 col-md-3 time-counter">
+                <p class="counter">Timer: <span id="timer">100</span></p>
             </div>
+            <div class="col-2 d-none d-md-block"></div>
         </div>
     </div>
 
-    <!-- Code for card flips sourced from https://3dtransforms.desandro.com/card-flip and https://www.youtube.com/watch?v=28VfzEiJgy4&t=1059s-->
+    <!-- Container for Cards -->
 
-    <div id="wrapper">
-        <div class="row game-cards">
-            <!-- easy level 12 cards-->
-            <div class="card" data-character="watch">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back watch"></div>
-            </div>
-            <div class="card" data-character="watch">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back watch"></div>
-            </div>
-            <div class="card" data-character="boot">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back boot"></div>
-            </div>
-            <div class="card" data-character="boot">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back boot"></div>
-            </div>
-            <div class="card" data-character="cards">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back cards"></div>
-            </div>
-            <div class="card" data-character="cards">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back cards"></div>
-            </div>
-            <div class="card" data-character="corner">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back corner"></div>
-            </div>
-            <div class="card" data-character="corner">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back corner"></div>
-            </div>
-            <div class="card" data-character="flag">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back flag"></div>
-            </div>
-            <div class="card" data-character="flag">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back flag"></div>
-            </div>
-            <div class="card" data-character="gloves">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back gloves"></div>
-            </div>
-            <div class="card" data-character="gloves">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back gloves"></div>
-            </div>
-            <!-- easy level ends -->
-            <div class="card hide-medium" data-character="goal">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back goal"></div>
-            </div>
-            <div class="card hide-medium" data-character="goal">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back goal"></div>
-            </div>
-            <div class="card hide-medium" data-character="jersey">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back jersey"></div>
-            </div>
-            <div class="card hide-medium" data-character="jersey">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back jersey"></div>
-            </div>
-            </div>
-          
-            <div class="card hide-medium" data-character="medal">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back medal"></div>
-            </div>
-            <div class="card hide-medium" data-character="medal">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back medal"></div>
-            </div>
-              <!-- medium level 18 cards  ends  -->
-            <div class="card hide-hard" data-character="pitch">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back medal"></div>
-            </div>
-            <div class="card hide-hard" data-character="pitch">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back medal"></div>
-            </div>
-            <div class="card hide-hard" data-character="whistle">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back medal"></div>
-            </div>
-            <div class="card hide-hard" data-character="whistle">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back medal"></div>
-            </div>
-            <div class="card hide-hard" data-character="trophy">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back trophy"></div>
-            </div>
-            <div class="card hide-hard" data-character="trophy">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back trophy"></div>
-            </div>
-            <!-- hard level 24 cards   ends-->
-        </div>
+    <div class="container game-container">
+        <div class="container-fluid d-flex no-gutters" id="game-board"></div>
     </div>
-</div>
-
--->
-
+    
+  
+  
 
 
 
