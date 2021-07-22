@@ -11,17 +11,9 @@ let cardsLength = 0; // Used in the gameBuild function depending on difficulty c
 let cardsPerGame = ''; // Depending on if the user has selected easy or medium/hard it will set the columns of cards
 let columnStyle = ''; // game-board class will be adjusted for different sizings in CSS 
 let firstCard, secondCard; // Checks for card matches 
+let firstClick = 0; // avoids the same card being flipped more than once 
 let maxPairs = 0; // 
 let time = 0; // time will be 100 seconds regardless of diffculty 
+let pairsMatched = 0; // checks matched cards and compares against maxPairs to see if the game has been won
 
 
-// Event Listener to allow all the html and JS to load fully before game can begin, https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=909s
-if(document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ready()); 
-} else {
-    ready ();
-}
-
-function ready () {
-
-}
