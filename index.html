@@ -27,7 +27,7 @@
     </div>
     </header>
 
-  <!-- Central container for everything -->
+  <!-- Main Home Page Container -->
   <div class="container-fluid d-flex justify-content-center align-items-center no-gutters">
 
       <!-- Button for Main Menu modal -->
@@ -40,7 +40,7 @@
   <div class="modal fade" id="mainMenuModal" tabindex="-1" role="dialog" aria-labelledby="mainMenuModal"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content mainMenu">
+      <div class="modal-content">
           <div class="modal-header d-block">
               <h4 class="modal-title text-center">Soccer Stars!</h4>
           </div>
@@ -59,8 +59,7 @@
                 </li>
                 <li>
                   <img class="main-menu-icon" src="assets/images/whistle.png" alt="Sound Toggle Button">
-                    <button type="button" class="btn menu-button button-click" data-toggle="modal"
-                    data-target="#ruleBookModal" data-dismiss="modal">Sound Settings</button>
+                    <button type="button" class="btn menu-button button-click" id="sound-button">Toggle Sound</button>
                 </li>
             </ul>
         </div>
@@ -71,17 +70,17 @@
   <!-- Rule Book Modal -->
   <div class="modal fade" id="ruleBookModal" tabindex="-1" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered text-center" role="document">
-        <div class="modal-content mainMenu">
+        <div class="modal-content">
             <div class="modal-header d-block">
                 <h4 class="modal-title text-center">Rule Book</h4>
             </div>
             <div class="modal-body">
                 <ul>
                     <li>
-                        <p>The goal is simple, choose your difficulty from the options below:</p>
-                        <p>Easy, 12 cards, 6 matches needed</p>
-                        <p>Medium, 16 cards, 8 matches needed</p>
-                        <p>Hard, 20 cards, 10 matches needed</p>
+                        <p>The goal is simple, work your way through each of the difficulties below:</p>
+                        <p>Group Stage - Easy , 12 cards, 6 matches needed</p>
+                        <p>Knockout Stage - Medium, 16 cards, 8 matches needed</p>
+                        <p> Cup Final - Hard, 20 cards, 10 matches needed</p>
                     </li>
                     <li>
                         <p>Click on a card to make it flip around. Click on a second card to try find its match!<br>
@@ -97,11 +96,51 @@
             <!-- Close Modal Button taken from https://getbootstrap.com/docs/4.0/components/modal/ -->
             <div class="modal-footer">
                 <button type="button" class="btn exit-button button-click" data-toggle="modal"
-                    data-target="#mainMenuModal" data-dismiss="modal">Exit</button>
+                    data-target="#mainMenuModal" data-dismiss="modal">Back to Menu</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- Play Game Modal -->
+
+<div class="modal fade" id="playGameModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content mainMenu">
+          <div class="modal-header d-block">
+              <h4 class="modal-title text-center">Play Game</h4>
+          </div>
+          <div class="modal-body">
+              <ul>
+                  <li>
+                      <p>Choose a Difficulty Below:</p>
+                  </li>
+                  <li>
+                      <button type="button" class="btn menu-button new-game"
+                          onclick="window.location.href='game.html?mode=Easy';">Group Stage - Easy  - 6 Matches Needed</button>
+                  </li>
+                  <li>
+                      <button type="button" class="btn menu-button new-game"
+                          onclick="window.location.href='game.html?mode=Medium';">Knockout Stage - Medium - 8 Matches Needed</button>
+                  </li>
+                  <li>
+                      <button type="button" class="btn menu-button new-game"
+                          onclick="window.location.href='game.html?mode=Hard';">Cup Final - Hard - 10 Matches Needed</button>
+                  </li>
+              </ul>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn exit-button button-click" data-toggle="modal"
+                  data-target="#mainMenuModal" data-dismiss="modal">Back to Menu</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
 
 
 
