@@ -16,6 +16,11 @@ body {
     height: 100vh;
 }
 
+header {
+    color: #EAFDF8;
+    font-size: 45px;
+}
+
 .header {
     color: #EAFDF8;
     text-shadow: 2px;
@@ -26,7 +31,7 @@ body {
     height: 300px;
     font-size: 50px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 20px; 
 }
 
 .main-menu-button {
@@ -59,9 +64,6 @@ body {
     color: #E2C044;
 }
 
-.exit-button {
-    color: #084B83;
-}
 
 .exit-button:hover {
     color: #6C0E23;
@@ -108,8 +110,6 @@ body {
     color: #6C0E23;
     background-color: #EAFDF8;
     border-radius: 10%;
-    width: 80px;
-    height: 40px;
     text-align: center;
 }
 
