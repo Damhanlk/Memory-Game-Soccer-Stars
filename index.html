@@ -58,6 +58,12 @@
                         data-target="#playGameModal" data-dismiss="modal">Play Game</button>
                 </li>
                 <li>
+                  <img class="main-menu-icon" src="assets/images/goal.png" alt="Top Scorers Button">
+                  <button type="button" class="btn menu-button button-click"
+                      onclick="window.location.href='game.html?mode=topScorers';">
+                      Top Scorers </button>
+              </li>
+                <li>
                   <img class="main-menu-icon" src="assets/images/whistle.png" alt="Sound Toggle Button">
                     <button type="button" class="btn menu-button button-click" id="sound-button">Toggle Sound</button>
                 </li>
@@ -156,7 +162,7 @@
  
     
 
-    <script>src="assets/game.js"</script>
+    <script src="assets/game.js" async></script>
     <!-- Import of jquery libraries for functionality, taken from  https://cdnjs.com/libraries/jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
