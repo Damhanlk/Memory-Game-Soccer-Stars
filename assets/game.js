@@ -39,7 +39,7 @@ $('document').ready(function () {
                 cardsLength = 12; // sets max amount of cards generated 
                 cardsPerGame = 'col-3'; // sets layout of cards 
                 columnStyle = 'game-mode-easy'; // calls from DOM what to be used in the gameBuild function
-                time = 10000; // time for countdown timer 
+                time = 60000; // time for countdown timer 
                 startTime = '60s';
                 break;
             case "Medium":
@@ -47,8 +47,8 @@ $('document').ready(function () {
                 cardsLength = 18;
                 cardsPerGame = 'col-2';
                 columnStyle = 'game-mode-medium';
-                time = 50000;
-                startTime = '50s';
+                time = 60000;
+                startTime = '60s';
                 break;
             case "Hard":
                 maxPairs = 12;
@@ -68,7 +68,7 @@ $('document').ready(function () {
  
 function gameBuild() {
     let game = document.getElementById("game-card-container");
-    game.classList.add(columnStyle); //adds class to alter css based on easy/medium/hard
+    game.classList.add(columnStyle); //adds class to alter css based on easy/medium/hard level
 
     $("#timer").html(startTime); //sets start time display before timer() function is called
 
@@ -107,7 +107,15 @@ function flipCard() {
     // first click of card initialises timer countdown function 
     clickOne += 1;
     if (clickOne == 1) timer(time) // time is set within the gameSetup function and differs by difficulty, and the first click will start it
+    
+    // NEW LINE TEST FOR BOARD LOCKED
+
+    if (boardLocked) return; //checks if boardLocked is true and returns out of function
+    if (this === firstCard) return; //checks the same card isn't clicked twice
+
+
     this.classList.toggle('flip'); //if valid, flips card using css class which controls the animation on the y and x axis
+
 
     // Function checks to see if card has been flipped, and stores either firstCard or secondCard in an array to be checked for matches
     if (!cardFlippedState) {
@@ -116,6 +124,7 @@ function flipCard() {
         return;
     }
     secondCard = this; 
+
     cardMatchCheck(); //function called to check stored firstCard and secondCard for matches
 }
 
@@ -133,6 +142,13 @@ function matchedPair() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
     pairsMatched += 1;
+
+    checkWinGame();
+}
+
+function checkWinGame() {
+    let gameVictory = pairsMatched === maxPairs;
+    gameVictory ? (clearInterva(gameTime), gameWon()) : resetBoardState();
 }
 
 function noMatchedPair() {
@@ -187,5 +203,7 @@ function timer() { //time value taken from gameSetup
 function gameOver() { 
     $('#gameOverModal').modal('toggle');
 }
+
+
 
 
