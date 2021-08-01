@@ -82,7 +82,7 @@ function gameBuild() {
         let card = document.createElement('div'); //creates a div
         card.className = (`${cardsPerGame} cards`); //adds to class names to card div
         card.setAttribute('data-id', cardPictures[i]); //sets data-id to match cardPictures[loop] used to check for matching cards
-        
+        card.addEventListener('click', flipCard); //adds event listener to each card for animation and flipCard function below
 
         let frontOfCard = document.createElement('div');
         frontOfCard.className = `cardFront ${cardPictures[i]}`; //creates a front of card div with css class and one of the sport themed images in the cardRange above
@@ -95,3 +95,14 @@ function gameBuild() {
     }
 }
 
+
+
+// flip card function which alters css styling, showing the other side of the card when clicked.
+// Event listener in gameBuild when clicked 
+
+
+function flipCard() {
+    
+    this.classList.toggle('flip'); //if valid, flips card using css class which controls the animation on the y and x axis
+
+}
