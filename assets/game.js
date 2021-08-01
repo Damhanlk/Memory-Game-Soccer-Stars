@@ -4,7 +4,7 @@ const cardRange = ['watch', 'boot', 'whistle','shoot', 'referee-cards', 'tactics
 
 // Store variables below to reduce amount stored in global space 
 
-// Code sourced from several sources - https://www.youtube.com/watch?v=tjyDOHzKN0w&t=21s, https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=909s
+// Code sourced from several sources and adapted - https://www.youtube.com/watch?v=tjyDOHzKN0w&t=21s, https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=909s
 
 let cardsLength = 0; // Used in the gameBuild function depending on difficulty chosen 
 let cardsPerGame = ''; // Depending on if the user has selected easy or medium/hard it will set the columns of cards
@@ -38,7 +38,7 @@ $('document').ready(function () {
                 cardsPerGame = 'col-3'; // sets the amount of cards 
                 columnStyle = 'game-mode-easy';
                 time = 60000;
-                startTime = '0m : 60s';
+                startTime = '60s';
                 break;
             case "Medium":
                 maxPairs = 9;
@@ -46,7 +46,7 @@ $('document').ready(function () {
                 cardsPerGame = 'col-2';
                 columnStyle = 'game-mode-medium';
                 time = 50000;
-                startTime = '0m : 50s';
+                startTime = '50s';
                 break;
             case "Hard":
                 maxPairs = 12;
@@ -54,11 +54,8 @@ $('document').ready(function () {
                 cardsPerGame = 'col-2';
                 columnStyle = 'game-mode-hard';
                 time = 60000;
-                startTime = '0m : 60s';
+                startTime = '60s';
                 break;
-
-                case "highScores":
-                    break;
         }
     }
 
@@ -102,7 +99,29 @@ function gameBuild() {
 
 
 function flipCard() {
-    
+    // first click initialises timer function 
+    clickOne += 1;
+    if (clickOne == 1) timer(time) // time is set within the gameSetup function and differs by difficulty, and the first click will start it
+
+
+
+
     this.classList.toggle('flip'); //if valid, flips card using css class which controls the animation on the y and x axis
 
 }
+
+// Game timer - code sourced from https://stackoverflow.com/questions/23025867/game-timer-javascript and adapted 
+function timer() { //time value taken from gameSetup 
+    time = new Date().getTime() + (time); //sets time to count down
+    gameTime = setInterval(function () { //uses interval to refresh display
+        let now = new Date().getTime(); //sets current time
+        timeDiff = time - now; //calcs time difference in correct format
+        let minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)); //works out minutes
+        let seconds = Math.floor((timeDiff % (1000 * 60)) / 1000); //works out seconds
+        timeRemaining = (minutes * 60) + seconds;
+        $("#timer").html(minutes + "m : " + seconds + "s "); //updates timer in game.html
+        
+    }, 1000); //counts down by one second at a time 
+}
+
+
