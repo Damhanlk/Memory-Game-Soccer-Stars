@@ -11,9 +11,16 @@
 body {
     background: url(/assets/images/bg_img.jpg) no-repeat center center fixed;
     background-size: cover;
+    background-repeat: no-repeat;
     font-family: "Graduate", sans-serif;
-    z-index: -1;
     height: 100vh;
+}
+
+.modal-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 header {
@@ -85,6 +92,23 @@ header {
     padding: 10px;
 }
 
+
+footer {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding-top: 0.5rem;
+    background: #084B83;
+    height: 7vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #EAFDF8;
+  }
+  i {
+      color: #EAFDF8;
+      font-size: 20px;
+  }
+
 /* game.html Styling */ 
 
 
@@ -128,7 +152,7 @@ header {
 /* will be called by the JS to alter game board depending on difficulty chosen */
 .game-mode-easy {
     position: absolute;
-    top: 150px;
+    top: 200px;
     max-width: 780px;
     bottom: 60px;
     display: -webkit-box;
@@ -142,7 +166,7 @@ header {
 
 .game-mode-medium {
     position: absolute;
-    top: 150px;
+    top: 200px;
     max-width: 1100px;
     bottom: 60px;
     display: -webkit-box;
@@ -155,7 +179,7 @@ header {
 }
 
 @media (max-width: 445px) { 
-    .game-content-medium {
+    .game-mode-medium {
         position: absolute;
         top: 200px;
         max-width: 1100px;
@@ -170,9 +194,9 @@ header {
     }
     }
     
-    .game-mode-large {
+    .game-mode-hard {
         position: absolute;
-        top: 150px;
+        top: 200px;
         max-width: 900px;
         bottom: 60px;
         display: -webkit-box;
@@ -186,6 +210,9 @@ header {
 
     .cards {
         position: relative;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -206,26 +233,43 @@ header {
 
     .cardFront { 
         -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-            position: absolute; 
-            -webkit-backface-visibility: hidden; 
-            backface-visibility: hidden; 
+        transform: rotateY(180deg);
+        background-color: #EAFDF8;
+        border: 2px solid #E2C044;
+        border-radius: 10px;
     }
 
     .cardBack {
-        background-image: url("/assets/images/ball.png");
+        background-image: url("../images/ball.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        position: absolute; 
-        -webkit-backface-visibility: hidden; 
-        backface-visibility: hidden; 
+        background-color: #EAFDF8;
+        border: 2px solid #E2C044;
+        border-radius: 10px;
     }
 
+    .cardFront, 
+    .cardBack {
+        height: 90%;
+        width: 90%;
+        -webkit-backface-visibility: hidden; 
+        backface-visibility: hidden; 
+        position: absolute;
+    }
+    
+
+    /* flip class which is targeted in the game.js file */ 
+    .cards.flip {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+
+    
 /* Image styling for cards - altered code from https://github.com/David-A-Ray */ 
 
 .watch {
-    background-image: url("/assets/_stopwatch.png");
+    background-image: url("/assets/images/_stopwatch.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
@@ -233,96 +277,98 @@ header {
 
 
 .boot {
-    background-image: url("/assets/images/boot.png");
+    background-image: url("../images/boot.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .shoot {
-    background-image: url("/assets/images/shoot.png");
+    background-image: url("../images/shoot.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
-.cards {
-    background-image: url("/assets/images/cards.png");
+.referee-cards {
+    background-image: url("../images/cards.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 60%;
+    background-position: center;
 }
 
 .tactics {
-    background-image: url("/assets/images/tactics.png");
+    background-image: url("../images/tactics.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 60%;
+    background-position: center;
 }
 
 .corner {
-    background-image: url("/assets/images/corner.png");
+    background-image: url("../images/corner.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .flag {
-    background-image: url("/assets/images/flag.png");
+    background-image: url("../images/flag.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .gloves {
-    background-image: url("assets/images/gloves.png");
+    background-image: url("../images/gloves.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .goal {
-    background-image: url("/assets/images/goal.png");
+    background-image: url("../images/goal.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .jersey {
-    background-image: url("assets/images/jersey.png");
+    background-image: url("../images/jersey.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .medal {
-    background-image: url("/assets/images/medal.png");
+    background-image: url("../images/medal.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .trophy {
-    background-image: url("assets/images/trophy.png");
+    background-image: url("../images/trophy.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .whistle {
-    background-image: url("/assets/images/whistle.png");
+    background-image: url("../images/whistle.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .pitch {
-    background-image: url("/assets/images/pitch.png");
+    background-image: url("../images/pitch.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
 }
 
 .score {
-    background-image: url("/assets/images/score.png");
+    background-image: url("../images/score.png");
     background-repeat: no-repeat;
     background-size: 60%;
     background-position: center;
@@ -332,7 +378,7 @@ header {
 
 @media (max-width: 445px) { 
     .watch {
-        background-image: url("/assets/_stopwatch.png");
+        background-image: url("../images/_stopwatch.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
@@ -340,100 +386,100 @@ header {
     
     
     .boot {
-        background-image: url("/assets/images/boot.png");
+        background-image: url("../images/boot.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .shoot {
-        background-image: url("/assets/images/shoot.png");
+        background-image: url("../images/shoot.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
-    .cards {
-        background-image: url("/assets/images/cards.png");
+    .referee-cards {
+        background-image: url("../images/cards.png");
         background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size: 60%;
+        background-position: center;
     }
     
     .tactics {
-        background-image: url("/assets/images/tactics.png");
+        background-image: url("../images/tactics.png");
         background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size: 60%;
+        background-position: center;
     }
     
     .corner {
-        background-image: url("/assets/images/corner.png");
+        background-image: url("../images/corner.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .flag {
-        background-image: url("/assets/images/flag.png");
+        background-image: url("../images/flag.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .gloves {
-        background-image: url("assets/images/gloves.png");
+        background-image: url("../images/gloves.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .goal {
-        background-image: url("/assets/images/goal.png");
+        background-image: url("../images/goal.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .jersey {
-        background-image: url("assets/images/jersey.png");
+        background-image: url("../images/jersey.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .medal {
-        background-image: url("/assets/images/medal.png");
+        background-image: url("../images/medal.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .trophy {
-        background-image: url("assets/images/trophy.png");
+        background-image: url("../images/trophy.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .whistle {
-        background-image: url("/assets/images/whistle.png");
+        background-image: url("../images/whistle.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .pitch {
-        background-image: url("/assets/images/pitch.png");
+        background-image: url("../images/pitch.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
     
     .score {
-        background-image: url("/assets/images/score.png");
+        background-image: url("../images/score.png");
         background-repeat: no-repeat;
         background-size: 60%;
         background-position: center;
     }
- 
-
 }
