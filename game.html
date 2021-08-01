@@ -20,7 +20,7 @@
 
     <!-- Title with exit button to return to landing page -->
 
-    <div class="container game-title-container">
+    <div class="container-fluid game-title-container">
         <div class="row d-flex p-2  no-gutters">
             <div class="col-2 d-none d-md-block"></div>
             <div class="col-6 col-md-3">
@@ -29,31 +29,38 @@
             <div class="col-2 d-none d-md-block"></div>
             <div class="col-6 col-md-3">
                 <button type="button" class="btn exit-button center" onclick="window.location.href='index.html';">
-                    Exit
+                    Exit to Home
                 </button>
             </div>
             <div class="col-2 d-none d-md-block"></div>
         </div>
     </div>
-   <!-- Duplicate container for time and flips counters -->
+   <!-- Duplicate of above responsive container for time and flips counters -->
     <div class="container">
         <div class="row d-flex p-2 no-gutters">
             <div class="col-2 d-none d-md-block"></div>
             <div class="col-6 col-md-3 flip-counter">
-                <p class="counter">Flips: <span id="flips"> 0 </span></p>
+                <p class="counter">Flips: <span id="flips">0</span></p>
             </div>
             <div class="col-2 d-none d-md-block"></div>
             <div class="col-6 col-md-3 time-counter">
-                <p class="counter">Timer: <span id="timer">100</span></p>
+                <p class="counter">Timer: <span id="timer"></span></p>
             </div>
             <div class="col-2 d-none d-md-block"></div>
         </div>
     </div>
 
-    <!-- Container for Cards -->
+    <!-- Container for Cards - layout will be decided based off difficulty in JS file  -->
 
     <div class="container game-container">
-        <div class="container-fluid d-flex no-gutters" id="game-board"></div>
+        <div class="container-fluid d-flex no-gutters" id="game-card-container"></div>
+    </div>
+
+    <!-- Victory Modal -->
+    <div id="victory" class="modal d-none">
+        <div class="victory-content">
+            <div class="modal-content"></div>
+        </div>
     </div>
     
   
@@ -68,16 +75,17 @@
 
 
 
-    <script>src="assets/game.js"</script>
+   
     <!-- Import of jquery libraries for functionality, taken from  https://cdnjs.com/libraries/jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"></script>
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="assets/game.js"></script>
 </body>
 </html>
