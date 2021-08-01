@@ -57,9 +57,38 @@
     </div>
 
 
+     <!-- Game Over Modal - same format as main menu modals-->
+
+     <div class="modal fade" id="gameOverModal" role="dialog" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-block">
+                    <h4 class="modal-title text-center">Game Over!</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            <p>Unlucky! You ran out of time. </p>
+                        </li>
+                        <!-- Button to replay current level -->
+                        <li>
+                            <button type="button" class="btn menu-button new-game"
+                                onclick="window.location.href=window.location.href;">Play Again?</button>
+                        </li>
+                     </ul>
+                </div>
+                 <!--  Alternatively Exit to Main Menu button -->
+                <div class="modal-footer">
+                    <button type="button" class="btn exit-button center" onclick="window.location.href='index.html';">
+                        Exit to Main Menu
+                    </button>
+                </div>
+            </div>
+    </div>
+
         
     <!-- Victory Modal -->
-    <div class="modal fade" id="gameWonModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="gameWonModal" role="dialog" tabindex="-1" aria-hidden="true">
         <div class="modal fade" id="gameWonModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered text-center" role="document">
             <div class="modal-content">
@@ -96,35 +125,6 @@
     </div> 
     
   
-  <!-- Game Over Modal - same format as main menu modals-->
-
-
-    <div class="modal fade" id="gameOverModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered text-center" role="document">
-        <div class="modal-content">
-            <div class="modal-header d-block">
-                <h4 class="modal-title text-center">Game Over!</h4>
-            </div>
-            <div class="modal-body">
-                <ul>
-                    <li>
-                        <p>Unlucky! You ran out of time. </p>
-                    </li>
-                    <!-- Button to replay current level -->
-                    <li>
-                        <button type="button" class="btn menu-button new-game"
-                            onclick="window.location.href=window.location.href;">Play Again?</button>
-                    </li>
-                 </ul>
-            </div>
-             <!--  Alternatively Exit to Main Menu button -->
-            <div class="modal-footer">
-                <button type="button" class="btn exit-button center" onclick="window.location.href='index.html';">
-                    Exit to Main Menu
-                </button>
-            </div>
-        </div>
-</div>
 
 
 
