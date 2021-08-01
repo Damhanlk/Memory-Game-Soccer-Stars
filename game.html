@@ -57,10 +57,39 @@
     </div>
 
     <!-- Victory Modal -->
-    <div id="victory" class="modal d-none">
-        <div class="victory-content">
-            <div class="modal-content"></div>
-        </div>
+    <div class="modal fade" id="gameWonModal" tabindex="-1" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-block">
+                    <h4 class="modal-title text-center">You Win!</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            <p>Congratulations, you found all the matches!</p>
+                        </li>
+                        <!-- Button Options to go to higher levels -->
+                        <li>
+                            <button type="button" class="btn menu-button new-game"
+                                onclick="window.location.href=window.location.href;">Play Again?</button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn menu-button new-game"
+                                onclick="window.location.href='game.html?mode=Medium';">Try Medium Level?</button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn menu-button new-game"
+                                onclick="window.location.href='game.html?mode=Hard';">Try Hard Level?</button>
+                        </li>
+                     </ul>
+                </div>
+                 <!--  Alternatively Exit to Main Menu button -->
+                <div class="modal-footer">
+                    <button type="button" class="btn exit-button center" onclick="window.location.href='index.html';">
+                        Exit to Main Menu
+                    </button>
+                </div>
+            </div>
     </div>
     
   
