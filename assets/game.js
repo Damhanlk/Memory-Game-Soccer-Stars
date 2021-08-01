@@ -37,7 +37,7 @@ $('document').ready(function () {
                 cardsLength = 12;
                 cardsPerGame = 'col-3'; // sets the amount of cards 
                 columnStyle = 'game-mode-easy';
-                time = 60000;
+                time = 10000;
                 startTime = '60s';
                 break;
             case "Medium":
@@ -111,6 +111,7 @@ function flipCard() {
 }
 
 // Game timer - code sourced from https://stackoverflow.com/questions/23025867/game-timer-javascript and adapted 
+
 function timer() { //time value taken from gameSetup 
     time = new Date().getTime() + (time); //sets time to count down
     gameTime = setInterval(function () { //uses interval to refresh display
@@ -121,7 +122,16 @@ function timer() { //time value taken from gameSetup
         timeRemaining = (minutes * 60) + seconds;
         $("#timer").html(minutes + "m : " + seconds + "s "); //updates timer in game.html
         
+        if (timeDiff < 1000) { //when timer runs out, Game Over
+            clearInterval(gameTime);
+            $("#timer").html("Game Over");
+           gameOver();
+        }
     }, 1000); //counts down by one second at a time 
+}
+
+function gameOver() { 
+    $('#gameOverModal').modal('toggle');
 }
 
 
