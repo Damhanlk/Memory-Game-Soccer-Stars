@@ -17,7 +17,7 @@ let time = 0; // time will be 60 seconds regardless of difficulty, which is alte
 let pairsMatched = 0; // checks cards in firstCard and secondCard arrays and checks to see if the game has been won
 let startTime = ""; // sets time depending on level of game difficulty
 let mode = ''; // used for game set up 
-
+let cardFlippedState = false; // has card been flipped or not yet
 // game ready fucntion sourced from https://github.com/David-A-Ray for set-up 
 
 $('document').ready(function () {
@@ -33,11 +33,11 @@ $('document').ready(function () {
     function gameSetup(mode) {
         switch (mode) {
             case "Easy":
-                maxPairs = 6;
-                cardsLength = 12;
-                cardsPerGame = 'col-3'; // sets the amount of cards 
-                columnStyle = 'game-mode-easy';
-                time = 10000;
+                maxPairs = 6; // value checked against pairsMatched value to determine if game has been won 
+                cardsLength = 12; // sets max amount of cards generated 
+                cardsPerGame = 'col-3'; // sets layout of cards 
+                columnStyle = 'game-mode-easy'; // calls from DOM what to be used in the gameBuild function
+                time = 60000; // time for countdown timer 
                 startTime = '60s';
                 break;
             case "Medium":
@@ -92,22 +92,33 @@ function gameBuild() {
     }
 }
 
-
+// Game Playability Functions 
 
 // flip card function which alters css styling, showing the other side of the card when clicked.
 // Event listener in gameBuild when clicked 
 
 
 function flipCard() {
-    // first click initialises timer function 
+    // first click of card initialises timer countdown function 
     clickOne += 1;
     if (clickOne == 1) timer(time) // time is set within the gameSetup function and differs by difficulty, and the first click will start it
-
-
-
-
     this.classList.toggle('flip'); //if valid, flips card using css class which controls the animation on the y and x axis
 
+    // Function checks to see if card has been flipped, and stores either firstCard or secondCard in an array to be checked for matches
+    if (!cardFlippedState) {
+        cardFlippedState = true;
+        firstCard = this; 
+        return;
+    }
+    secondCard = this; 
+    cardMatchCheck(); //function called to check stored firstCard and secondCard for matches
+}
+
+// Function to check firstCard vs secondCard for matches - influence https://medium.com/free-code-camp/vanilla-javascript-tutorial-build-a-memory-game-in-30-minutes-e542c4447eae
+
+function cardMatchCheck() {
+    let checkMatch = firstCard.dataset.id === secondCard.dataset.id; // checks if the two images are the same 
+    checkMatch ? matchedPair() : noMatchedPair(); // if they are, the matchedPair function is called, if not, the noMatchedPair is called
 }
 
 // Game timer - code sourced from https://stackoverflow.com/questions/23025867/game-timer-javascript and adapted 
@@ -122,13 +133,16 @@ function timer() { //time value taken from gameSetup
         timeRemaining = (minutes * 60) + seconds;
         $("#timer").html(minutes + "m : " + seconds + "s "); //updates timer in game.html
         
-        if (timeDiff < 1000) { //when timer runs out, Game Over
+        if (timeDiff < 1000) { //when timer runs out, the game is over
             clearInterval(gameTime);
             $("#timer").html("Game Over");
-           gameOver();
+            gameOver();
         }
     }, 1000); //counts down by one second at a time 
 }
+
+
+// Game over function called when timer runs out 
 
 function gameOver() { 
     $('#gameOverModal').modal('toggle');
