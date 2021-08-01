@@ -23,14 +23,11 @@ let mode = ''; // used for game set up
 $('document').ready(function () {
     // grab the query parameter from the url and pass it to game setup
     mode = new URLSearchParams(window.location.search).get('mode');
-    gameSetup(mode);
-
-    if (mode === "highScores") { // check if highscores has been selected first
-        displayHighScores(highScores);
-    } else {  //if not highscores then call buildLayout
+    gameSetup(mode); {
         gameBuild();
     }
-});
+        
+    });
 
     //use of a switch case here to determine card array length, pairs needed to win and layout depending on which mode is selected 
     function gameSetup(mode) {
