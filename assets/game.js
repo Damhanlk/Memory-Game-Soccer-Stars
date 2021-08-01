@@ -1,6 +1,5 @@
-
-let cardPictures = [] // will randomly select from the array of cards below based on the game difficulty 
-const cardRange = ['watch', 'boot', 'whistle','shoot', 'cards', 'tactics', 'corner', 'flag', 'gloves', 'goal', 'jersey', 'medal', 'trophy', 'pitch', 'score' ];
+let cardPictures = []; // will randomly select from the array of cards below based on the game difficulty 
+const cardRange = ['watch', 'boot', 'whistle','shoot', 'referee-cards', 'tactics', 'corner', 'flag', 'gloves', 'goal', 'jersey', 'medal', 'trophy', 'pitch', 'score' ];
 
 
 // Store variables below to reduce amount stored in global space 
@@ -11,21 +10,25 @@ let cardsLength = 0; // Used in the gameBuild function depending on difficulty c
 let cardsPerGame = ''; // Depending on if the user has selected easy or medium/hard it will set the columns of cards
 let columnStyle = ''; // game-board class will be adjusted for different sizings in CSS 
 let firstCard, secondCard; // Checks for card matches 
-let firstClick = 0; // avoids the same card being flipped more than once 
-let maxPairs = 0; // 
-let boardLock = false; //prevents two cards being clicked at the same time 
+let clickOne = 0; // avoids the same card being flipped more than once 
+let maxPairs = 0; // pairs needed to win 
+let boardLocked = false; //prevents two cards being clicked at the same time 
 let time = 0; // time will be 60 seconds regardless of difficulty, which is altered by the maxPairs
-let pairsMatched = 0; // checks matched cards and compares against maxPairs to see if the game has been won
+let pairsMatched = 0; // checks cards in firstCard and secondCard arrays and checks to see if the game has been won
+let startTime = ""; // sets time depending on level of game difficulty
+let mode = ''; // used for game set up 
 
-
-// sourced from https://github.com/David-A-Ray for game set-up 
+// game ready fucntion sourced from https://github.com/David-A-Ray for set-up 
 
 $('document').ready(function () {
     // grab the query parameter from the url and pass it to game setup
     mode = new URLSearchParams(window.location.search).get('mode');
     gameSetup(mode);
-    { 
-      gameBuild();
+
+    if (mode === "highScores") { // check if highscores has been selected first
+        displayHighScores(highScores);
+    } else {  //if not highscores then call buildLayout
+        gameBuild();
     }
 });
 
@@ -35,29 +38,63 @@ $('document').ready(function () {
             case "Easy":
                 maxPairs = 6;
                 cardsLength = 12;
-                cardsPerRow = 'col-3';
-                colStyle = 'game-mode-easy';
+                cardsPerGame = 'col-3'; // sets the amount of cards 
+                columnStyle = 'game-mode-easy';
                 time = 60000;
                 startTime = '0m : 60s';
                 break;
             case "Medium":
                 maxPairs = 9;
                 cardsLength = 18;
-                cardsPerRow = 'col-2';
-                colStyle = 'game-mode-medium';
+                cardsPerGame = 'col-2';
+                columnStyle = 'game-mode-medium';
                 time = 50000;
-                startTime = '0m : 60s';
+                startTime = '0m : 50s';
                 break;
             case "Hard":
                 maxPairs = 12;
                 cardsLength = 24;
-                cardsPerRow = 'col-2';
-                colStyle = 'game-mode-hard';
+                cardsPerGame = 'col-2';
+                columnStyle = 'game-mode-hard';
                 time = 60000;
-                startTime = '1m : 65s';
+                startTime = '0m : 60s';
                 break;
-                break;
+
+                case "highScores":
+                    break;
         }
     }
 
-    
+
+ // function to build the game based off level choice
+ // easy, medium and hard modes as stated above will have differing card amounts 
+ // random card selection from the cardRange array, our images for the flip side of the cards - Fisher-Yates method utilised
+ 
+function gameBuild() {
+    let game = document.getElementById("game-card-container");
+    game.classList.add(columnStyle); //adds class to alter css based on easy/medium/hard
+
+    $("#timer").html(startTime); //sets start time display before timer() function is called
+
+    // Fisher Yates shuffle code adapted from https://medium.com/@omar.rashid2/fisher-yates-shuffle-a2aa15578d2f
+    let shuffled = cardRange.sort(function () { return 0.5 - Math.random(); });
+    let selected = shuffled.slice(0, maxPairs);
+    cardPictures = selected.concat(selected); cardPictures.sort(function () { return 0.5 - Math.random(); });
+
+    for (let i = 0; i < cardsLength; i++) { //loop to repeat until correct number of cards generated from gameSetup functuion
+        let card = document.createElement('div'); //creates a div
+        card.className = (`${cardsPerGame} cards`); //adds to class names to card div
+        card.setAttribute('data-id', cardPictures[i]); //sets data-id to match cardPictures[loop] used to check for matching cards
+        
+
+        let frontOfCard = document.createElement('div');
+        frontOfCard.className = `cardFront ${cardPictures[i]}`; //creates a front of card div with css class and one of the sport themed images in the cardRange above
+
+        let backOfCard = document.createElement('div');
+        backOfCard.className = "cardBack"; //creates a back of card div with css class, in this case, the ball picture which features on every card's back
+
+        card.append(frontOfCard, backOfCard); //appends front and back div's to card div
+        game.appendChild(card); //appends card to game container DIV in the DOM and repeats loop
+    }
+}
+
