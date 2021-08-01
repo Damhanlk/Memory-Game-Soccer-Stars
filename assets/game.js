@@ -18,7 +18,9 @@ let pairsMatched = 0; // checks cards in firstCard and secondCard arrays and che
 let startTime = ""; // sets time depending on level of game difficulty
 let mode = ''; // used for game set up 
 let cardFlippedState = false; // has card been flipped or not yet
-// game ready fucntion sourced from https://github.com/David-A-Ray for set-up 
+
+
+// game ready function sourced from https://github.com/David-A-Ray for set-up 
 
 $('document').ready(function () {
     // grab the query parameter from the url and pass it to game setup
@@ -37,7 +39,7 @@ $('document').ready(function () {
                 cardsLength = 12; // sets max amount of cards generated 
                 cardsPerGame = 'col-3'; // sets layout of cards 
                 columnStyle = 'game-mode-easy'; // calls from DOM what to be used in the gameBuild function
-                time = 60000; // time for countdown timer 
+                time = 10000; // time for countdown timer 
                 startTime = '60s';
                 break;
             case "Medium":
@@ -70,7 +72,9 @@ function gameBuild() {
 
     $("#timer").html(startTime); //sets start time display before timer() function is called
 
-    // Fisher Yates shuffle code adapted from https://medium.com/@omar.rashid2/fisher-yates-shuffle-a2aa15578d2f
+// Fisher Yates shuffle code adapted from https://medium.com/@omar.rashid2/fisher-yates-shuffle-a2aa15578d2f
+    
+    
     let shuffled = cardRange.sort(function () { return 0.5 - Math.random(); });
     let selected = shuffled.slice(0, maxPairs);
     cardPictures = selected.concat(selected); cardPictures.sort(function () { return 0.5 - Math.random(); });
@@ -91,6 +95,7 @@ function gameBuild() {
         game.appendChild(card); //appends card to game container DIV in the DOM and repeats loop
     }
 }
+
 
 // Game Playability Functions 
 
@@ -114,12 +119,44 @@ function flipCard() {
     cardMatchCheck(); //function called to check stored firstCard and secondCard for matches
 }
 
+
+
 // Function to check firstCard vs secondCard for matches - influence https://medium.com/free-code-camp/vanilla-javascript-tutorial-build-a-memory-game-in-30-minutes-e542c4447eae
 
 function cardMatchCheck() {
     let checkMatch = firstCard.dataset.id === secondCard.dataset.id; // checks if the two images are the same 
     checkMatch ? matchedPair() : noMatchedPair(); // if they are, the matchedPair function is called, if not, the noMatchedPair is called
 }
+
+// when firstCard and secondCard's ID is equal, the event listener is removed, +1 is added to the pairsMatched value
+function matchedPair() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+    pairsMatched += 1;
+}
+
+function noMatchedPair() {
+    boardLocked = true; //prevents further clicks till function complete
+    setTimeout(() => { //timeout used to show cards very briefly 
+        firstCard.classList.remove('flip'); //removes flip class in css file so flip animation occurs again, flipping the cards back
+        secondCard.classList.remove('flip'); 
+        resetBoardState(); //calls resetBoardState function
+    }, 750); // short time to allow function to take place without obstructing gameplay 
+
+}
+
+
+// clears values used in checkForMatch function and resets board so the player can flip again 
+
+function resetBoardState() {
+    [cardFlippedState, boardLocked] = [false, false];
+    [firstCard, secondCard] = [null, null];
+}
+
+
+
+
+
 
 // Game timer - code sourced from https://stackoverflow.com/questions/23025867/game-timer-javascript and adapted 
 
@@ -140,6 +177,9 @@ function timer() { //time value taken from gameSetup
         }
     }, 1000); //counts down by one second at a time 
 }
+
+
+
 
 
 // Game over function called when timer runs out 
