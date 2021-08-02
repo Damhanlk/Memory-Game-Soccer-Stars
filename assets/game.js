@@ -19,7 +19,6 @@ let startTime = ""; // sets time depending on level of game difficulty
 let mode = ''; // used for game set up 
 let cardFlippedState = false; // has card been flipped or not yet
 
-
 // game ready function sourced from https://github.com/David-A-Ray for set-up 
 
 $('document').ready(function () {
@@ -40,7 +39,7 @@ $('document').ready(function () {
                 cardsPerGame = 'col-3'; // sets layout of cards 
                 columnStyle = 'game-mode-easy'; // calls from DOM what to be used in the gameBuild function
                 time = 60000; // time for countdown timer 
-                startTime = '60s';
+                startTime = '60s'; //always 60s, only card amount differs between difficulty
                 break;
             case "Medium":
                 maxPairs = 9;
@@ -107,16 +106,12 @@ function flipCard() {
     // first click of card initialises timer countdown function 
     clickOne += 1;
     if (clickOne == 1) timer(time) // time is set within the gameSetup function and differs by difficulty, and the first click will start it
-    
-    // NEW LINE TEST FOR BOARD LOCKED
 
-    if (boardLocked) return; //checks if boardLocked is true and returns out of function
+    if (boardLocked) return; //checks if boardLocked is true
     if (this === firstCard) return; //checks the same card isn't clicked twice
 
-
     this.classList.toggle('flip'); //if valid, flips card using css class which controls the animation on the y and x axis
-
-
+    
     // Function checks to see if card has been flipped, and stores either firstCard or secondCard in an array to be checked for matches
     if (!cardFlippedState) {
         cardFlippedState = true;
@@ -146,9 +141,10 @@ function matchedPair() {
     checkWinGame();
 }
 
+// Game is checked to see if it's won. Game is won when the pairs matched is equal to the maximum pairs for that particular level
 function checkWinGame() {
     let gameVictory = pairsMatched === maxPairs;
-    gameVictory ? (clearInterva(gameTime), gameWon()) : resetBoardState();
+    gameVictory ? (clearInterval(gameTime), gameWon()) : resetBoardState();
 }
 
 function noMatchedPair() {
@@ -204,6 +200,10 @@ function gameOver() {
     $('#gameOverModal').modal('toggle');
 }
 
+// Game Win modal called when all matches for that level are found 
 
+function gameWon() {
+    $('#gameWonModal').modal('toggle');
+}
 
 
