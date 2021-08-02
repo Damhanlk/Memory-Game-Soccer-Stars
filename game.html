@@ -59,7 +59,7 @@
 
      <!-- Game Over Modal - same format as main menu modals-->
 
-     <div class="modal fade" id="gameOverModal" role="dialog" tabindex="-1" aria-hidden="true">
+     <div class="modal fade" id="gameOverModal" role="dialog" tabindex="-1" aria-hidden="true" aria-labelledby="gameOverModal">
         <div class="modal-dialog modal-dialog-centered text-center" role="document">
             <div class="modal-content">
                 <div class="modal-header d-block">
@@ -85,46 +85,37 @@
                 </div>
             </div>
     </div>
+</div>
+     
 
-        
-    <!-- Victory Modal -->
-    <div class="modal fade" id="gameWonModal" role="dialog" tabindex="-1" aria-hidden="true">
-        <div class="modal fade" id="gameWonModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered text-center" role="document">
-            <div class="modal-content">
-                <div class="modal-header d-block">
-                    <h4 class="modal-title text-center">You Win!</h4>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li>
-                            <p>Congratulations, you found all the matches!</p>
-                        </li>
-                        <!-- Button Options to go to higher levels -->
-                        <li>
-                            <button type="button" class="btn menu-button new-game"
-                                onclick="window.location.href=window.location.href;">Play Again?</button>
-                        </li>
-                        <li>
-                            <button type="button" class="btn menu-button new-game"
-                                onclick="window.location.href='game.html?mode=Medium';">Try Medium Level?</button>
-                        </li>
-                        <li>
-                            <button type="button" class="btn menu-button new-game"
-                                onclick="window.location.href='game.html?mode=Hard';">Try Hard Level?</button>
-                        </li>
-                     </ul>
-                </div>
-                 <!--  Alternatively Exit to Main Menu button -->
-                <div class="modal-footer">
-                    <button type="button" class="btn exit-button center" onclick="window.location.href='index.html';">
-                        Exit to Main Menu
-                    </button>
-                </div>
+   <!-- Game Won Modal - same format as main menu modals-->
+
+   <div class="modal fade" id="gameWonModal" role="dialog" tabindex="-1" aria-hidden="true" aria-labelledby="gameWonModal">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-block">
+                <h4 class="modal-title text-center">Congratulations!</h4>
             </div>
-    </div> 
-    
-  
+            <div class="modal-body">
+                <ul>
+                    <li>
+                        <p>You found all the matches! </p>
+                    </li>
+                    <!-- Button to replay current level -->
+                    <li>
+                        <button type="button" class="btn menu-button new-game"
+                            onclick="window.location.href=window.location.href;">Play Again?</button>
+                    </li>
+                 </ul>
+            </div>
+             <!--  Alternatively Exit to Main Menu button -->
+            <div class="modal-footer">
+                <button type="button" class="btn exit-button center" onclick="window.location.href='index.html';">
+                    Exit to Main Menu
+                </button>
+            </div>
+        </div>
+</div>
 
 
 
